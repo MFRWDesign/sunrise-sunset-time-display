@@ -5,4 +5,10 @@ $( document ).ready(function() {
   $( "#date" ).text( date );
   $( "#sunrise" ).text( "5:00AM EST" );
   $( "#sunset" ).text( "5:00AM EST" );
+  const SunriseSunsetUrl = 'https://api.sunrise-sunset.org/json?lat=42.634338&lng=-73.553581';
+  $.getJSON(SunriseSunsetUrl, function mycallback(result){
+    $( "#sunrise" ).text( result.results.sunrise );
+    $( "#sunset" ).text( result.results.sunset );
+  });
+
 });
